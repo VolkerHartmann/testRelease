@@ -1,0 +1,36 @@
+language: java
+
+dist: xenial
+
+jdk:
+# Enable all versions which should be supported
+# - openjdk8
+- openjdk11
+- openjdk13
+
+# services:
+# if you need other services try it via docker
+# - docker
+
+# before_install:
+# pull docker image
+# - docker pull arangodb/arangodb
+# create docker container
+# - docker run -d -p 8539:8529 -e ARANGO_ROOT_PASSWORD=ocrd-testOnly arangodb/arangodb
+
+install: true
+  
+script:
+- ./gradlew -Ptravis clean check jacocoTestReport
+
+after_success:
+- "./gradlew coveralls"
+
+# are the following lines necessary?
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
