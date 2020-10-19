@@ -3,17 +3,9 @@ import java.text.SimpleDateFormat
 ext {
    snippetsDir = file("build/generated-snippets")
 }
-
-test { 
-   outputs.dir snippetsDir
-}
-
-dependencies {
-   compile("edu.kit.datamanager:generic-message-consumer:0.1")
-}
    
 asciidoctor {
-   attributes "snippets": snippetsDir,
+  attributes "snippets": snippetsDir,
             "version": jar.version,
             "date": new SimpleDateFormat("yyyy-MM-dd").format(new Date())
    inputs.dir snippetsDir
@@ -23,8 +15,8 @@ asciidoctor {
 }
 
 test {
+   outputs.dir snippetsDir
    environment "spring.config.location", "classpath:/config/"
-   include '**/*DataResourceControllerDocumentationTest*'
 }
 
 tasks.withType(Test) {
@@ -32,7 +24,7 @@ tasks.withType(Test) {
         events 'started', 'passed'
     }
 }
-
+   
 bootJar {
    manifest {
       attributes 'Main-Class': 'org.springframework.boot.loader.PropertiesLauncher'
@@ -42,16 +34,5 @@ bootJar {
       into 'static/docs'
    }
    launchScript()
-}
-
-/**The default task for compiling the project has to be overwritten in order to build first 
- * from a clean release
- */
-compileJava {
-    if (project.hasProperty('clean-release')) {
-        apply from: 'gradle/git_checkout.gradle'
-        dependsOn checkoutProject
-    }
-
 }
    
