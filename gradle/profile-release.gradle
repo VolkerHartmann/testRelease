@@ -35,4 +35,6 @@ bootJar {
    }
    launchScript()
 }
-   
+release {
+    tagTemplate = 'v${version}'
+}   
