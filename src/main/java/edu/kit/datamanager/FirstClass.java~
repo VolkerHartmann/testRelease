@@ -15,7 +15,6 @@ public class FirstClass {
     }
 
     public boolean testMe(boolean success) {
-        //add some comment
         return success;
     }
 
