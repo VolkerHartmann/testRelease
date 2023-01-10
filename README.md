@@ -4,6 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/kit-data-manager/metastore2/badge.svg?branch=master)](https://coveralls.io/github/kit-data-manager/metastore2?branch=master)
 ![License](https://img.shields.io/github/license/kit-data-manager/metastore2.svg)
 
+test Release
+
 General purpose metadata repository and schema registry service.
 
 It allows you to 
