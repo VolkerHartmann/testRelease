@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Support for JSON
 
+Test a PR and assign Issue afterwards.
+
 ### [0.1.2] - date 2020-10-16
 ### Added
 - Release management
