@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Support for JSON
+- Edit external file only.
 
 ### [0.1.2] - date 2020-10-16
 ### Added
